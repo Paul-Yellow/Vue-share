@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="bower_components/vue/dist/vue.js"></script>
+    <script src="bower_components/vue-router/dist/vue-router.js"></script>
+    <style>
+        .router-link-active {
+            font-size: 20px;
+            color: #f60;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div>
+            <router-link to="/home">主页</router-link>
+            <router-link to="/user">用户</router-link>
+        </div>
+        <div>
+            <router-view></router-view>
+        </div>
+
+    </div>
+
+    <template id="app1">
+        <h3>我是主页</h3>
+    </template>
+    <template id="app2">
+        <div>
+            <h3>用户信息</h3>
+            <ul>
+                <li>
+                    <router-link to="/user/zhangsan/age/10">张三</router-link>
+                    <router-link to="/user/lisi/age/20">李四</router-link>
+                    <router-link to="/user/wangwu/age/30">王五</router-link>
+                </li>
+            </ul>
+            <div>
+                <router-view></router-view>
+            </div>
+
+
+        </div>
+
+    </template>
+    <template id="app3">
+        <div>
+            {{$route.params}}
+        </div>
+    </template>
+
+    <script>
+        //组件
+        var Home = {
+            template: '#app1'
+        };
+        var User = {
+            template: '#app2'
+        };
+        var UserDetail = {
+            template: '#app3'
+        };
+
+        //配置路由
+        const routes = [
+            { path: '/home', component: Home },
+            {
+                path: '/user',
+                component: User,
+                children: [
+                    { path: ':username/age/:age', component: UserDetail }
+                ]
+
+            },
+            { path: '*', redirect: '/home' }
+        ];
+
+        //生成路由实例
+        const router = new VueRouter({
+            routes
+        });
+
+
+        //最后挂到vue上
+        new Vue({
+            router,
+            el: '#box'
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
