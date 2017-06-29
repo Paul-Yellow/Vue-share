@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bower_components/animate.css/animate.css">
+    <script src="bower_components/vue/dist/vue.js"></script>
+    <script src="bower_components/vue-router/dist/vue-router.js"></script>
+    <style>
+        p {
+            width: 300px;
+            height: 300px;
+            background: #f30
+        }
+        /*.fade-enter-active,
+        .fade-leave-active {
+            transition: 1s all ease
+        }
+
+        .fade-enter-active {
+            opacity: 1;
+            width: 300px;
+            height: 300px
+        }
+
+        .fade-leave-active {
+            opacity: 0;
+            width: 100px;
+            height: 100px;
+        }
+
+        .fade-enter,
+        .fade-leave {
+            opacity: 0;
+            width: 100px;
+            height: 100px;
+        }*/
+    </style>
+
+</head>
+
+<body>
+    <div id="box">
+        <!--<input type="button" name="" value="按钮" @click="show=!show">-->
+        <!--<transition name="fade">
+            <p v-show="show"></p>
+
+        </transition>-->
+
+
+        <input type="text" v-model="show">
+        <transition-group enter-active-class="zoomInLeft" leave-active-class="zoomOutRight">
+            <!--<p v-show="show" class="animated" :key="1"></p>
+            <p v-show="show" class="animated" :key="2"></p>-->
+            <p v-for="(val,index) in lists" class="animated" v-show="show" :key="index">
+                {{val}}
+            </p>
+
+        </transition-group>
+    </div>
+    <script>
+        new Vue({
+            el: '#box',
+            data: {
+                show: '',
+                list: ['apple', 'banana', 'pear', 'orange']
+            },
+            computed: {
+                lists: function () {
+                    var arr = []
+                    this.list.forEach(function(val) {
+                        console.log(this.list)
+                        console.log(val)
+                        if(val.indexOf(this.show)!=-1){
+                            arr.push(val)
+                        }
+                    }.bind(this));
+                    return arr
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
