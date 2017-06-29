@@ -1,51 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Welcome to Vue</title>
 
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <style>
-    .box {
-      width: 200px;
-      height: 200px;
-      border: 1px solid #333;
-    }
 
-    .color {
-      color: rebeccapurple;
-    }
-
-    .font {
-      font-size: 20px;
-    }
-
-    .bg {
-      background: #F60;
-
-    }
-
-
-  </style>
 </head>
+
 <body>
-<div id="app">
-  <div :class="{bg:true}">
-    哈哈哈哈
+  <div id="app">
+    <!--<div :style="{backgroundColor:'red',color:'#333',fontSize:'40px'}">
+      哈哈哈哈
+    </div>-->
+    <!--<div :style="[c,b]">
+      哈哈哈哈
+    </div>-->
+
+
+     <div :style="b">
+      哈哈哈哈
+    </div>
+
+
+
+
   </div>
 
-</div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        c: {
+          color: 'red'
+        },
+        b: {
+          background: '#333',
+          fontSize:'40px',
+           color: 'red'
+          
+        }
 
-<script>
+      },
+      methods: {}
 
-  new Vue({
-    el: '#app',
-    data: {
-
-    },
-    methods: {}
-
-  })
-</script>
+    })
+  </script>
 </body>
+
 </html>

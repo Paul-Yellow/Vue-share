@@ -2,10 +2,20 @@
 #### vue官网地址  http://cn.vuejs.org/v2/api/
 #### vue gitHub地址  https://github.com/vuejs/vue
 
+![](http://image.beekka.com/blog/2015/bg2015020110.png)
+```
+View 一般就是我们平常说的HTML文本的Js模板，里面可以嵌入一些js模板的代码，比如Mustache，比如jstl类似的模板伪代码
+
+ViewModule 层里面就是我们对于这个视图区域的一切js可视业务逻辑，举个例子，比如图片走马灯特效，比如表单按钮点击提交，这些自定义事件的注册和处理逻辑都写在ViewModule里面了
+
+Modul e就更简单了，就是对于纯数据的处理，比如增删改查，与后台CGI做交互
+```
+
 
 
 ## 1. **简单入门**
   * **直接引入**
+
   ``` javascript
  <script src="https://unpkg.com/vue/dist/vue.js"></script>
 

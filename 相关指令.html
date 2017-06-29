@@ -6,19 +6,19 @@
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <style>
-/*    .box {
+    .box {
       width: 200px;
       height: 300px;
-      background: #eee;
+      background: #f65323;
 
     }
     .box2 {
       width: 200px;
       height: 300px;
       background: #000;
-      !*display: none;
-*!
-    }*/
+      
+
+    }
 
 
   </style>
@@ -34,9 +34,14 @@
     <ul>
       <li v-for="(val,index) in arr">{{index}}</li>
     </ul>-->
-<!--  <input type="button" value="按钮"  @click="show">
-  <div class="box" v-if="flag"></div>
+  <input type="button" value="按钮"  @click="show">
+  <!--<div class="box" v-if="flag"></div>
   <div class="box2" v-else="flag"></div>-->
+
+
+
+  <div class="box" v-show="flag"></div>
+  <div class="box2" v-show="!flag"></div>
 
 </div>
 

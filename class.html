@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Welcome to Vue</title>
 
@@ -18,35 +19,49 @@
     }
 
     .font {
-      font-size: 20px;
+      font-size: 40px;
     }
 
     .bg {
       background: #F60;
-
     }
-
-
   </style>
 </head>
+
 <body>
-<div id="app">
-  <div :class="{bg:true}">
-    哈哈哈哈
+  <div id="app">
+    <!--<div :class="{bg:true,font:true}">
+      哈哈哈哈
+    </div>-->
+
+
+    <!--<div :class="[b,f]">
+      哈哈哈哈
+    </div>-->
+    <div :class="json">
+      哈哈哈哈
+    </div>
+
   </div>
 
-</div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        b: 'bg',
+        f: 'font',
+        json: {
+          bg: true,
+          font: true
+        }
 
-<script>
 
-  new Vue({
-    el: '#app',
-    data: {
 
-    },
-    methods: {}
+      },
+      methods: {}
 
-  })
-</script>
+    })
+  </script>
 </body>
+
 </html>

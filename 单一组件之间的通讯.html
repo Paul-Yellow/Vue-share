@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="bower_components/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <par-com></par-com>
+
+    </div>
+    <template id="par">
+        <div id="par">
+            <h3>我是父组件</h3>
+            <span>{{msg}}</span>
+        </div>
+
+    </template>
+
+    <template id="child">
+        <div id=child>
+            <h3>我是子组件</h3>
+            <span></span>
+        </div>
+
+    </template>
+
+    <script>
+        new Vue({
+            el: '#box',
+            components: {
+
+                'par-com': {
+                    template: '#par',
+                    data() {
+                        return {
+                            msg: 'dadadsa'
+                        }
+
+                    }
+                }
+
+
+
+            }
+        })
+    </script>
+
+
+
+
+</body>
+
+</html>

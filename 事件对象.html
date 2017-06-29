@@ -25,7 +25,7 @@
 </head>
 <body>
 <div id="app">
-  <div class="outer" @click.prevent="show1">
+  <div class="outer" @click.prevent="show1($evnt)">
     <div class="inner" @click.stop="show2"></div>
 
   </div>
@@ -41,10 +41,11 @@
     data: {},
     methods: {
       show1(ev){
-
+        console.log(ev)
         alert('outer')
       },
       show2(ev){
+
 
         alert('inner')
       }
