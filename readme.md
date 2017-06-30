@@ -6,11 +6,11 @@
 
 ![](http://image.beekka.com/blog/2015/bg2015020110.png)
 ```
-View 一般就是我们平常说的HTML文本的Js模板，里面可以嵌入一些js模板的代码，比如Mustache，比如jstl类似的模板伪代码
+View 一般就是我们平常说的HTML文本的Js模板，里面可以嵌入一些js模板的代码，比如Mustache，类似的模板伪代码
 
-ViewModule 层里面就是我们对于这个视图区域的一切js可视业务逻辑，举个例子，比如图片走马灯特效，比如表单按钮点击提交，这些自定义事件的注册和处理逻辑都写在ViewModule里面了
+ViewModule 层里面就是我们对于这个视图区域的一切js可视业务逻辑，比如表单按钮点击提交，这些自定义事件的注册和处理逻辑都写在ViewModule里面了
 
-Modul e就更简单了，就是对于纯数据的处理，比如增删改查，与后台CGI做交互
+Module 就更简单了，就是对于纯数据的处理，数据层 
 ```
 
 
@@ -74,7 +74,7 @@ Modul e就更简单了，就是对于纯数据的处理，比如增删改查，�
    v-bind      绑定属性 可缩写为 :class
    v-model     多用于表单元素  双向数据的一个绑定
    v-pre
-   v-cloak   [v-clock]{display:none;}
+   v-cloak   [v-cloak]{display:none;}
    v-once
 
    ```
@@ -83,12 +83,6 @@ Modul e就更简单了，就是对于纯数据的处理，比如增删改查，�
 ---
  * **相关事件**
  ```
- eg1： 事件对象（$event）
-  
-   <div id="box">
-        <input type="button" value="按钮" @click="show($event)">
-   </div>
-   
    <script>
       
     new Vue({
@@ -102,55 +96,26 @@ Modul e就更简单了，就是对于纯数据的处理，比如增删改查，�
     });
       
     </script>
+ eg1： 事件对象（$event）
+  
+   <div id="box">
+        <input type="button" value="按钮" @click="show($event)">
+   </div>
+
     
  eg2：组织冒泡和默认行为
-
-    <script src="vue.js"></script>
-    <script>
-        window.onload=function(){
-            new Vue({
-                el:'#box',
-                data:{
-
-                },
-                methods:{
-                    show:function(){
-                        alert(1);
-                    }
-                }
-            });
-        };
-    </script>
-</head>
-<body>
-    <div id="box">
-        <input type="button" value="按钮" @contextmenu.prevent="show()">
-         <input type="button" value="按钮" @contextmenu.stop="show()">
-    </div>
-</body>
+    <body>
+        <div id="box">
+            <input type="button" value="按钮" @contextmenu.prevent="show()">
+            <input type="button" value="按钮" @contextmenu.stop="show()">
+        </div>
+    </body>
 
 eg3:键盘事件
-        Vue.config.keyCodes.ctrl=17;
-
-        window.onload=function(){
-            new Vue({
-                el:'#box',
-                data:{
-                },
-                methods:{
-                    change(){
-                        alert('改变了');
-                    }
-                }
-            });
-        };
-    </script>
-</head>
-<body>
+        Vue.config.keyCodes.myctrl=17;
     <div id="box">
         <input type="text" @keyup.ctrl="change">
     </div>
-</body>
 
  ```
 
@@ -161,9 +126,9 @@ eg3:键盘事件
  eg1 
  
      <script>
-        var Home={  //这是2.0组件
+        var Home={  //定义组件
             template:'#aaa'
-        };  //Vue.extend()
+        };  
 
 
    <!--   Vue.component('my-aaa',Home);-->
@@ -258,28 +223,6 @@ eg2
         <br>
         <child-com :msg="a"></child-com>
     </div>
-        <script>
-        window.onload=function(){
-            new Vue({
-                el:'#box',
-                data:{
-                    a:'我是父组件数据'
-                },
-                components:{
-                    'child-com':{
-                        props:['msg'],
-                        template:'#child',
-                        methods:{
-                            change(){
-                                this.msg='被更改了'
-                            }
-                        }
-                    }
-                }
-            });
-        };
-    </script>
-</body>
 
 
  1、单一组件之间的通讯
@@ -287,8 +230,6 @@ eg2
    <script>
         //准备一个空的实例对象
         var Event=new Vue();
-
-
         var A={
             template:`
                 <div>
