@@ -11,13 +11,14 @@
 
 <body>
     <div id="box">
-        <par-com></par-com>
+
 
     </div>
-    <template id="par">
+    <!--<template id="par">
         <div id="par">
             <h3>我是父组件</h3>
             <span>{{msg}}</span>
+            <child-com :pardata="msg"></child-com>
         </div>
 
     </template>
@@ -25,29 +26,71 @@
     <template id="child">
         <div id=child>
             <h3>我是子组件</h3>
-            <span></span>
+            <span>{{pardata}}</span>
         </div>
 
-    </template>
+    </template>-->
+
+
+
+
 
     <script>
+        //父组件----》子组件
+        // new Vue({
+        //     el: '#box',
+        //     components: {
+        //         'par-com': {
+        //             template: '#par',
+        //             data() {
+        //                 return {
+        //                     msg: '我是父组件数据'
+        //                 }
+
+        //             },
+        //             components:{
+        //                 'child-com':{
+        //                     template:'#child',
+        //                     props:['pardata'],
+
+        //                 }
+
+        //             }
+
+        //         }
+
+
+
+        //     }
+        // })
+
+        let first = {
+            template: `
+            <div>
+            <h4>fist</h4>
+            </div>
+            `
+        }
+        let second = {
+            template: `
+            <div>
+            <h4>second</h4>
+            </div>
+            `
+        }
+
+        let third = {
+            template: `
+            <div>
+            <h4>third</h4>
+            </div>
+            `
+        }
+
         new Vue({
-            el: '#box',
-            components: {
+            el:'#box',
+            
 
-                'par-com': {
-                    template: '#par',
-                    data() {
-                        return {
-                            msg: 'dadadsa'
-                        }
-
-                    }
-                }
-
-
-
-            }
         })
     </script>
 

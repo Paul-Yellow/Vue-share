@@ -2,6 +2,8 @@
 #### vue官网地址  http://cn.vuejs.org/v2/api/
 #### vue gitHub地址  https://github.com/vuejs/vue
 
+## 1. **mvvm**
+
 ![](http://image.beekka.com/blog/2015/bg2015020110.png)
 ```
 View 一般就是我们平常说的HTML文本的Js模板，里面可以嵌入一些js模板的代码，比如Mustache，比如jstl类似的模板伪代码
